@@ -11,10 +11,3 @@ The repository is divided into three main directories:
 - :file_folder: OpenMP: directory for OpenMP examples.
 - :file_folder: MPI: directory for MPI examples.
 
-Each of the main directories has the following structure
-
-The base structure of each main directory is made up of the following internal directories:
-- :file_folder: src: project source code.
-- :file_folder: bin: compiled source code.
-
-
