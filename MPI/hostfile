@@ -1,0 +1,6 @@
+# This is the file with hosts and slots.
+# It is necessary to run MPI programs. Do not change it.
+#
+# Format: <IP_Address> slots=<number of cores>
+143.106.243.239 slots=16
+177.220.20.221  slots=8
