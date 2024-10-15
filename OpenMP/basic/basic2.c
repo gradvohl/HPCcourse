@@ -5,7 +5,7 @@ int main ()
   int i=0, tmp=0, threadId=0;
   int firstTime = 1;
 
-  #pragma omp parallel num_threads (4) firstprivate(tmp, firstTime, threadId)
+  #pragma omp parallel num_threads (4) firstprivate(tmp, firstTime, threadId) 
   {
     threadId = omp_get_thread_num();
     printf("Thread %d. Initial value for i: %d\n", threadId, i);
@@ -23,6 +23,8 @@ int main ()
 
     printf("Thread %d, tmp:%d\n", omp_get_thread_num (), tmp);
   }
+
+  printf("Final value of tmp: %d\n", tmp);
 
   return 0;
 }
