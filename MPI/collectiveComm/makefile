@@ -13,7 +13,7 @@ CC=mpicc
 #LIB=-lm
 # 
 # Source files
-SOURCES=scatterExample.c reduceExample.c
+SOURCES=gatherExample.c scatterExample.c reduceExample.c 
 #
 # Object files
 OBJECTS=$(SOURCES:.c=.o)
@@ -24,17 +24,26 @@ PROGRAMDIR=.
 
 all: $(OBJECTS)
 
+gatherExample.o: gatherExample.c
+	@echo "Compiling $< and creating $@"
+	$(CC) $< -o $(PROGRAMDIR)/$@
+	@echo "To run this program, use the following command:"
+	@echo "mpirun -np <num of processes> -hostfile ../hostfile ./$@"
+	@echo " "
+
 scatterExample.o: scatterExample.c
 	@echo "Compiling $< and creating $@"
 	$(CC) $< -o $(PROGRAMDIR)/$@
 	@echo "To run this program, use the following command:"
 	@echo "mpirun -np <num of processes> -hostfile ../hostfile ./$@"
+	@echo " "
 
 reduceExample.o: reduceExample.c
 	@echo "Compiling $< and creating $@"
 	$(CC) $< -o $(PROGRAMDIR)/$@
 	@echo "To run this program, use the following command:"
 	@echo "mpirun -np <num of processes> -hostfile ../hostfile ./$@"
+	@echo " "
 
 clean:
 	rm -f $(OBJECTS) 

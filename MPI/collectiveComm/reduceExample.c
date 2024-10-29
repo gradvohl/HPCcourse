@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 	fprintf(stderr,"mpirun -np 4 -hostfile ../hostfile %s\n", argv[0]);
        }
 	
-       exit(EXIT_FAILURE);
+        MPI_Abort(MPI_COMM_WORLD, EXIT_FAILURE);
     }
 
     /**
