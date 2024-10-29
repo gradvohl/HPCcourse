@@ -13,7 +13,7 @@ CC=mpicc
 #LIB=-lm
 # 
 # Source files
-SOURCES=msgExample.c
+SOURCES=msgExample.c nonBlocking.c
 #
 # Object files
 OBJECTS=$(SOURCES:.c=.o)
@@ -25,6 +25,12 @@ PROGRAMDIR=.
 all: $(OBJECTS)
 
 msgExample.o: msgExample.c
+	@echo "Compiling $< and creating $@"
+	$(CC) $< -o $(PROGRAMDIR)/$@
+	@echo "To run this program, use the following command:"
+	@echo "mpirun -np <num of processes> -hostfile ../hostfile ./$@"
+
+nonBlocking.o: nonBlocking.c
 	@echo "Compiling $< and creating $@"
 	$(CC) $< -o $(PROGRAMDIR)/$@
 	@echo "To run this program, use the following command:"
